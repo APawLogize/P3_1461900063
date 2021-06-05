@@ -15,11 +15,12 @@ use App\Http\Controllers\DbController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/barang', [DbController::class, 'index']);
+Route::get('/barang', [DbController::class, 'index']); 
+Route::get('/barang/tambah', [DbController::class, 'tambah']);
+Route::get('/barang/hapus/{id}', [DbController::class, 'hapus']); 
+Route::post('/barang/store', [DbController::class, 'store']);
+Route::get('/barang/edit/{id}', [DbController::class, 'edit']); 
+Route::post('/barang/update', [DbController::class, 'update']);
+Route::get('/barang/cari', [DbController::class, 'cari']);
